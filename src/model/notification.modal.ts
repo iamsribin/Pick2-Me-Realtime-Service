@@ -21,7 +21,8 @@ const NotificationSchema = new Schema<INotificationSchema>(
             required: true,
         },
         type: {
-            type: String,
+            type:String,
+            enum:['system','ride','payment'],
             required: true,
         },
         date: {

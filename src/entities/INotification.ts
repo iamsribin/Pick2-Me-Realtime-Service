@@ -5,7 +5,7 @@ export interface INotificationSchema extends Document {
     receiverId: Schema.Types.ObjectId;
     title: string,
     body:string,
-    type: string;
+    type: 'system'|'ride'|'payment';
     path: string;
     date: Date;
     createdAt: Date;

@@ -1,4 +1,4 @@
-import { socketService } from "@/services/implementation/socket-service"
+import { socketService } from "@/services/implementation/notification-service"
 import { Socket } from "socket.io"
 
 export function attach(socket: Socket) {

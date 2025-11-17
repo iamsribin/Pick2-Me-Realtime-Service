@@ -1,4 +1,4 @@
-import { socketService } from '@/services/implementation/socket-service';
+import { socketService } from '@/services/implementation/notification-service';
 import { EXCHANGES, QUEUES, RabbitMQ, ROUTING_KEYS } from '@Pick2Me/shared/messaging';
 
 export class RealTimeEventConsumer {
