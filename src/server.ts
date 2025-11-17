@@ -1,10 +1,10 @@
 import 'dotenv/config';
 import http from 'http';
-import { isEnvDefined } from './utils/envChecker';
+import { isEnvDefined } from '@/utils/envChecker';
 import { createRedisService } from '@Pick2Me/shared/redis';
-import app from './server/server';
-import { initSocket } from './server/socket';
-import { RealTimeEventConsumer } from './events/consumer';
+import app from '@/server/http';
+import { initSocket } from '@/server/socket';
+import { RealTimeEventConsumer } from '@/events/consumer';
 
 const startServer = async () => {
   try {
@@ -23,7 +23,6 @@ const startServer = async () => {
       console.log(`Realtime service listening on port ${PORT}`);
     });
 
-    // Graceful shutdown
     process.on('SIGTERM', () => {
       console.log('SIGTERM received, shutting down gracefully');
       server.close(() => {
