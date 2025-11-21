@@ -4,10 +4,6 @@ import { Schema, model } from "mongoose";
 
 const NotificationSchema = new Schema<INotificationSchema>(
     {
-        senderId: {
-            type: Schema.Types.ObjectId,
-            required: true,
-        },
         receiverId: {
             type: Schema.Types.ObjectId,
             required: true,
@@ -24,6 +20,7 @@ const NotificationSchema = new Schema<INotificationSchema>(
             type:String,
             enum:['system','ride','payment'],
             required: true,
+            default:'system'
         },
         date: {
             type: Date,

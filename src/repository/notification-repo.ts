@@ -2,12 +2,15 @@ import { INotificationSchema } from "@/entities/INotification";
 import { MongoBaseRepository } from "@Pick2Me/shared/mongo";
 import { Model, Types, UpdateWriteOpResult } from "mongoose";
 import { INotificationRepository } from "./interfaces/i-notification-repo";
+import { inject, injectable } from "inversify";
+import { TYPES } from "@/types/inversify-types";
 
+@injectable()
 export class NotificationRepository
     extends MongoBaseRepository<INotificationSchema>
     implements INotificationRepository {
 
-    constructor(private model: Model<INotificationSchema>) {
+    constructor(@inject(TYPES.NotificationModel) private model: Model<INotificationSchema>) {
         super(model);
     }
 

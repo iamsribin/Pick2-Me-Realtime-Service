@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import 'dotenv/config';
 import http from 'http';
 import { isEnvDefined } from '@/utils/envChecker';
@@ -5,10 +6,13 @@ import { createRedisService } from '@Pick2Me/shared/redis';
 import app from '@/server/http';
 import { initSocket } from '@/server/socket';
 import { RealTimeEventConsumer } from '@/events/consumer';
+import { connectDB } from '@Pick2Me/shared/mongo';
 
 const startServer = async () => {
   try {
     isEnvDefined();
+
+    connectDB(process.env.MONGO_URL!);
      
     createRedisService(process.env.REDIS_URL!);
 
